@@ -11,8 +11,13 @@ const searchCode = ()=> {
             .then(result => searchResponse = result)
             .then(() => console.log(searchResponse))
             .then(() => {
-                document.querySelector('.result').value = searchResponse.data[0].post_code
+                if(searchResponse.data[0] ==undefined){
+                    document.querySelector('.result').value = "Netesingas Pasto kodas"
+                }
+                else {
+                    document.querySelector('.result').value = searchResponse.data[0].post_code
+                }
             })
     })
 }
-export default searchCode
+export default searchCode;

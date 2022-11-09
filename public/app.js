@@ -101,7 +101,11 @@ var searchCode = function searchCode() {
     }).then(function () {
       return console.log(searchResponse);
     }).then(function () {
-      document.querySelector('.result').value = searchResponse.data[0].post_code;
+      if (searchResponse.data[0] == undefined) {
+        document.querySelector('.result').value = "Netesingas Pasto kodas";
+      } else {
+        document.querySelector('.result').value = searchResponse.data[0].post_code;
+      }
     });
   });
 };
